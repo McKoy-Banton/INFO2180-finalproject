@@ -1,46 +1,45 @@
---DROP DATABASE IF EXISTS dolphin_crm;
-CREATE DATABASE dolphin_crm;
+-- DROP DATABASE IF EXISTS dolphin_crm;
+CREATE DATABASE IF NOT EXISTS dolphin_crm;
 USE dolphin_crm;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL auto_increment,
-  `firstname` char(35) NOT NULL default '',
-  `lastname` char(35) NOT NULL default '',
-  `password` char(20) NOT NULL,
-  `email` char(50) NOT NULL default '',
-  `role` char(20) NOT NULL default '',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(35) NOT NULL DEFAULT '',
+  `lastname` varchar(35) NOT NULL DEFAULT '',
+  `password` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `role` varchar(20) NOT NULL DEFAULT '',
   `create_at` DATETIME,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
 
-
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
-  `id` int(11) NOT NULL auto_increment,
-  `title` char(35) NOT NULL default '',
-  `firstname` char(35) NOT NULL default '',
-  `lastname` char(35) NOT NULL default '',
-  `email` char(50) NOT NULL default '',
-  `telephone` char(15) NOT NULL default '',
-  `company` char(50) NOT NULL default '',
-  `type` char(35) NOT NULL salesorsupport,
-  `assigned_to` int(11) NOT NULL storeappropriateuserid,
-  'created_by' int(11) NOT NULL storeappropriateuserid,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(35) NOT NULL DEFAULT '',
+  `firstname` varchar(35) NOT NULL DEFAULT '',
+  `lastname` varchar(35) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `telephone` varchar(15) NOT NULL DEFAULT '',
+  `company` varchar(50) NOT NULL DEFAULT '',
+  `type` varchar(15) NOT NULL,
+  `assigned_to` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
   `create_at` DATETIME,
-  'updated_at' DATETIME,
+  `updated_at` DATETIME,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
-  `id` int(11) NOT NULL auto_increment,
-  `contact_id` int(15) NOT NULL default '',
-  `comment` text(35) NOT NULL default '',
-  `created_by` int(11) NOT NULL storeappropriateuserid,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contact_id` int(15) NOT NULL,
+  `comment` text NOT NULL,
+  `created_by` int(11) NOT NULL,
   `create_at` DATETIME,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
 
-SET @hashed_password=SHA2('',256);
-INSERT INTO users (email, password_hashed,role,create_at) VALUES ('admin@project2.com',@hashed_password,'admin',NOW());
+SET @hashed_password = SHA2('', 256);
+INSERT INTO users (email, password, role, create_at) VALUES ('admin@project2.com', @hashed_password, 'admin', NOW());
