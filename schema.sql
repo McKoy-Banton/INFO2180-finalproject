@@ -41,5 +41,5 @@ CREATE TABLE `notes` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
 
-SET @hashed_password = SHA2('', 256);
+SET @hashed_password = SHA2('password123', 256);
 INSERT INTO users (email, password, role, create_at) VALUES ('admin@project2.com', @hashed_password, 'admin', NOW());
