@@ -7,11 +7,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(35) NOT NULL DEFAULT '',
   `lastname` varchar(35) NOT NULL DEFAULT '',
-<<<<<<< HEAD
-  `password` varchar(20) NOT NULL,
-=======
   `password` varchar(256) NOT NULL,
->>>>>>> login
   `email` varchar(50) NOT NULL DEFAULT '',
   `role` varchar(20) NOT NULL DEFAULT '',
   `create_at` DATETIME,
@@ -45,10 +41,5 @@ CREATE TABLE `notes` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
 
-<<<<<<< HEAD
-SET @hashed_password = SHA2('', 256);
-INSERT INTO users (email, password, role, create_at) VALUES ('admin@project2.com', @hashed_password, 'admin', NOW());
-=======
 SET @hashed_password = SHA2('password123', 256); 
 INSERT INTO users (email, password, role, create_at) VALUES ('admin@project2.com', @hashed_password, 'admin', NOW());
->>>>>>> login

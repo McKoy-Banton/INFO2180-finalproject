@@ -7,7 +7,12 @@ if (!isset($_SESSION["user_id"]))
     exit;
 }
 
-echo $_SESSION["user_id"];
+$conn= require __DIR__ . "/accessDB.php";
+
+
+$sql= sprintf("SELECT * FROM contacts");
+
+    $result= $conn->query($sql);
 
 ?>
 
@@ -18,11 +23,86 @@ echo $_SESSION["user_id"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboard.css">
     <title>Dashboard</title>
-
-    <li><a href="logout.php"> <button>Log Out</button> </a></li>
+    <header class="header_bar">
+        <p><img src="img/logo.png" alt="Badge Image" id="logo"> Dolphin CRM</p>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </header>
+ 
+   
 </head>
 <body>
-    
+<div class="sidebar">
+
+    <a href="#" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
+    <a href="create-contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+    <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+    <hr>
+    <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+            
+</div>
+<div class="content">
+    <div class="card">
+
+    <main>
+            <header>
+                <h1>Dashboard</h1>
+                <a href="create-contact.php"><i class="material-icons">group_add</i>Add Contact</a>
+            </header>
+
+            <section>
+                <div class="controls">
+                    <i class="material-icons">filter_list</i>
+                    <h3>Filter By:</h3>
+                    <button class="active filter-all">All</button>
+                    <button class="filter-sales">Sales Leads</button>
+                    <button class="filter-support">Support</button>
+                    <button class="filter-assigned">Assigned to me</button>
+                </div>
+
+                <table>
+                    <colgroup>
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 15%">
+                        <col style="width: 10%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Name</th> <th>Email</th> <th>Company</th> <th>Type</th>  <th></th>
+                        </tr> 
+                    </thead>
+                    <?php 
+                     foreach($result as $row ):
+                        $classText;
+                        if($row['type'] == "Support"){$classText = "support";}
+                        if($row['type'] == "Sales Lead"){$classText = "sales-lead";}
+                     
+                    
+
+
+                    ?>
+                    
+                    <tr>
+                            <td><p id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></p></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['company'] ?></td>
+                            <td><?php echo "<span class=\"" . $classText . "\">" . $row['type'] . "</span>" ?></td>
+                            <td><a href="#" id= "link">View</a></td> 
+                        </tr>
+                    <?php endforeach; ?> 
+                    <tbody>
+                    </tbody>
+                 
+                </table>
+            </section>
+        </main>
+
+    </div>
+</div>
+
+
 </body>
 </html>
