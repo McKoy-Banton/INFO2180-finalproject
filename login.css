@@ -47,6 +47,7 @@ body
     border-radius: 9px 9px 9px 9px;
     border-color: aliceblue;
     height: 5vh;
+    cursor: pointer;
 }
 
 .container form div button #lock
