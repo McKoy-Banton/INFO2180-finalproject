@@ -10,7 +10,7 @@ CREATE TABLE `users` (
   `password` varchar(256) NOT NULL,
   `email` varchar(50) NOT NULL DEFAULT '',
   `role` varchar(20) NOT NULL DEFAULT '',
-  `create_at` DATETIME,
+  `created_at` DATETIME,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
 
@@ -26,7 +26,7 @@ CREATE TABLE `contacts` (
   `type` varchar(15) NOT NULL,
   `assigned_to` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
-  `create_at` DATETIME,
+  `created_at` DATETIME,
   `updated_at` DATETIME,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
@@ -37,9 +37,9 @@ CREATE TABLE `notes` (
   `contact_id` int(15) NOT NULL,
   `comment` text NOT NULL,
   `created_by` int(11) NOT NULL,
-  `create_at` DATETIME,
+  `created_at` DATETIME,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 SET @hashed_password = SHA2('password123', 256); 
 INSERT INTO users (email, password, role, create_at) VALUES ('admin@project2.com', @hashed_password, 'admin', NOW());

@@ -23,7 +23,7 @@ $sql= sprintf("SELECT * FROM contacts");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css\\dashboard.css">
     <title>Dashboard</title>
     <header class="header_bar">
         <p><img src="img/logo.png" alt="Badge Image" id="logo"> Dolphin CRM</p>
@@ -90,7 +90,7 @@ $sql= sprintf("SELECT * FROM contacts");
                             <td><?php echo $row['email'] ?></td>
                             <td><?php echo $row['company'] ?></td>
                             <td><?php echo "<span class=\"" . $classText . "\">" . $row['type'] . "</span>" ?></td>
-                            <td><a href="#" id= "link">View</a></td> 
+                            <td><a href="viewcontact.php?view=<?php echo $row['id'] ?>" id= "link">View</a></td> 
                         </tr>
                     <?php endforeach; ?> 
                     <tbody>
