@@ -62,12 +62,14 @@ function convertTimeFormat(){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css//viewcontact.css">
+    <link rel="stylesheet" href="css/viewcontact.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Contact View</title>
+
 </head>
 
-<header class="header_bar">
+<header class="header_bar" id="scrolling-header">
     <p><img src="img/logo.png" alt="Badge Image" id="logo"> Dolphin CRM</p>
 </header>
 
@@ -79,26 +81,29 @@ function convertTimeFormat(){
     <a href="create-contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
     <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
     <hr>
-    <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+    <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             
 </div>
 
 <section>
             <header>
-                <div class="header-buttons">
-                    <button type="button" id="switch"><i class="fas fa-exchange"></i>Switch to <?php if($contact['type'] == "Support"){echo "Sales Lead";} else{echo "Support";}?></button> 
-                    <button type="button" id="assign"><i class="fas fa-hand-paper"></i>Assign to me</button> 
-                    
-                </div>
+           
                 <div class="image">
                         <img src="img/profilepic.png" alt="Contact Profile Picture"> <!--filler image-->
 
                         <div class="text">
                             <h1><?php echo $contact['title'] . " " . $contact['firstname'] . " " . $contact['lastname']?></h1> <!--filler text-->
-                            <p>Created on <?php echo convertDateFormat(substr($contact['create_at'], 0, 10)) ?> by <?php echo $created_by['firstname'] . " " . $created_by['lastname']?></p>  <!--filler text-->
+                            <p>Created on <?php echo convertDateFormat(substr($contact['created_at'], 0, 10)) ?> by <?php echo $created_by['firstname'] . " " . $created_by['lastname']?></p>  <!--filler text-->
                             <p>Updated on <?php echo convertDateFormat(substr($contact['updated_at'], 0, 10)) ?></p>  <!--filler text-->
                         </div>
                 </div>
+                <div class="header-buttons">
+                    <button type="button" id="switch"><span class="material-symbols-outlined">switches</span>Switch to <?php if($contact['type'] == "Support"){echo "Sales Lead";} else{echo "Support";}?></button> 
+                    <button type="button" id="assign"><i class="material-symbols-outlined">add_circle</i>Assign to me</button> 
+                    
+                </div>
+
+               
 
 
             </header>
@@ -133,7 +138,7 @@ function convertTimeFormat(){
                             <label for="notes">
                                 <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                             </label>
-                            <input type="text" value="Notes" readonly>
+                            <input type="text" id = "note_label" value="Notes" readonly>
                         </div>
 
 
@@ -148,7 +153,7 @@ function convertTimeFormat(){
                                 echo "<div class=\"written-notes\">";
                                     echo "<h4>" . $user['firstname'] . " " . $user['lastname'] . "</h4>";
                                     echo "<p class=\"pnotes\">" . $note['comment'] . "</p>";
-                                    echo "<p class=\"date\">" . convertDateFormat(substr($note['create_at'], 0, 10)) . " at" . substr($note['create_at'], 10) . "</p>";
+                                    echo "<p class=\"date\">" . convertDateFormat(substr($note['created_at'], 0, 10)) . " at" . substr($note['created_at'], 10) . "</p>";
                                 echo "</div>";
                             }
                         ?>

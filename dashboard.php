@@ -12,7 +12,7 @@ $conn= require __DIR__ . "/accessDB.php";
 
 $sql= sprintf("SELECT * FROM contacts");
 
-    $result= $conn->query($sql);
+$result= $conn->query($sql);
 
 ?>
 
@@ -23,7 +23,8 @@ $sql= sprintf("SELECT * FROM contacts");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\\dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js\\dashboard.js"></script>
     <title>Dashboard</title>
     <header class="header_bar">
         <p><img src="img/logo.png" alt="Badge Image" id="logo"> Dolphin CRM</p>
@@ -36,10 +37,10 @@ $sql= sprintf("SELECT * FROM contacts");
 <div class="sidebar">
 
     <a href="#" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
-    <a href="create-contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-    <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+    <a href="#"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+    <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
     <hr>
-    <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+    <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             
 </div>
 <div class="content">
@@ -75,23 +76,18 @@ $sql= sprintf("SELECT * FROM contacts");
                         </tr> 
                     </thead>
                     <?php 
-                     foreach($result as $row ):
-                        $classText;
-                        if($row['type'] == "Support"){$classText = "support";}
-                        if($row['type'] == "Sales Lead"){$classText = "sales-lead";}
-                     
-                    
-
-
+                     foreach($result as $contact ):
+                        $type;
+                        if($contact['type'] == "Support"){$type = "support";}
+                        if($contact['type'] == "Sales Lead"){$type = "sales-lead";}
                     ?>
-                    
                     <tr>
-                            <td><p id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></p></td>
-                            <td><?php echo $row['email'] ?></td>
-                            <td><?php echo $row['company'] ?></td>
-                            <td><?php echo "<span class=\"" . $classText . "\">" . $row['type'] . "</span>" ?></td>
-                            <td><a href="viewcontact.php?view=<?php echo $row['id'] ?>" id= "link">View</a></td> 
-                        </tr>
+                            <td><a href="viewcontact.php?view=<?php echo $contact['id'] ?>" id= "link"><p id= "name"><?php echo $contact['title'].".".$contact['firstname']." ".$contact['lastname'] ?></p></a></td>
+                            <td><?php echo $contact['email'] ?></td>
+                            <td><?php echo $contact['company'] ?></td>
+                            <td><?php echo "<span class=\"" . $type . "\">" . $contact['type'] . "</span>" ?></td>
+                            <td><a href="viewcontact.php?view=<?php echo $contact['id'] ?>" id= "link">View</a></td> 
+                    </tr>
                     <?php endforeach; ?> 
                     <tbody>
                     </tbody>

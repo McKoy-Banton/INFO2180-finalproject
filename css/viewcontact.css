@@ -107,7 +107,7 @@ li{
 .sidebar {
     height: 100%;
     width: 250px;
-    position: fixed;
+    position: absolute;
     background-color: #ffffff;
     padding-top: 20px;
 }
@@ -125,9 +125,13 @@ li{
     color: #1d95be;
 }
 
-.image{
+.image {
     display: flex;
     align-items: center;
+}
+
+.text {
+    margin-left: 10px; /* Adjust the margin as needed */
 }
 
 .image img{
@@ -137,12 +141,18 @@ li{
     align-self: flex-start;
 }
 
-.header-buttons button{
-    font-weight: 800;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-i{
-    padding-right: 2px;
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
 }
+
+
 
 
 #assign, #switch{
@@ -152,8 +162,13 @@ i{
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0px 0px 3px rgba(74, 74, 74, 0.2);
-    float :right; 
-    justify-content: space-evenly;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    
+}
+.material-symbols-outlined {
+    margin-right: 5px; 
 }
 
 #assign{
@@ -195,6 +210,14 @@ section{
     padding: 32px;
 }
 
+#email ,#text, #assigned , #telephone{
+    border-radius: 8px;
+    padding-left: 12px;
+    
+}
+
+
+
 .info-element{
     appearance: none;
     outline: none;
@@ -205,6 +228,8 @@ section{
     padding-bottom: 12px;
     padding-left: 0px;
     padding-right: 16px;
+    
+   
 }
 .contact-info input{
     font-weight: 600;
@@ -313,4 +338,9 @@ section{
 
 .add-note-btn input[type="submit"]:hover{
     background-color: #633fa1;
+}
+
+#note_label{
+    border-radius: 6px;
+    padding-left: 10px;
 }
