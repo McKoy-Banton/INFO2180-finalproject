@@ -1,6 +1,6 @@
 # INFO2180-finalproject
 
-## Group Members
+## Group 6 Members
 - McKoy Banton
 - Mickoy Banton
 - Kevonteh Brown
