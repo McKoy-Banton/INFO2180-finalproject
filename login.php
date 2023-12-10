@@ -1,70 +1,10 @@
-<?php
-$isinvalid=true;
-
-function verifySHA256($data, $expectedHash) 
-{
-    $calculatedHash = hash('sha256', $data);
-
-    if ($calculatedHash === $expectedHash) 
-    {
-        return true;
-    } 
-    else 
-    {
-        return false;
-    }
-}
-
-
-if ($_SERVER["REQUEST_METHOD"]==="POST")
-{
-    $conn= require __DIR__ . "/accessDB.php";
-
-    $sql= sprintf("SELECT * FROM users WHERE email  = '%s'", 
-          $conn-> real_escape_string ($_POST["email"]));
-
-    $result= $conn->query($sql);
-
-    $user= $result->fetch_assoc();
-    
-    
-    if($user)
-    {
-        if(verifySHA256($_POST["password"], $user["password"]))
-       {
-           $isinvalid=false; 
-           session_start();
-           $_SESSION["user_id"]=$user["id"];
-           header("Location: dashboard.php");
-           exit;
-
-       }
-
-       else
-       {
-            $isinvalid=false;
-       }
-    }
-
-    else
-    {
-        $isinvalid=false;
-    }
-
-    
-}
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
+    <script src="js/login.js"></script>
     <title>Login</title>
 </head>
 
@@ -79,14 +19,12 @@ if ($_SERVER["REQUEST_METHOD"]==="POST")
 
             <div> <h2 id="header">Login</h2> </div>
 
-            <?php
-             if(!$isinvalid)
-             {
-                echo "<h4> Invalid data entered </h4>";
-             }
-            ?>
+            <div id="invalid">
+
+            </div>
+
                         
-            <form method="POST">
+            <form>
             
                 <div><input type="email" placeholder="Email address" name="email" id="email"></div>
                 <div><input type="password" placeholder="Password" name="password" id="password"></div>
