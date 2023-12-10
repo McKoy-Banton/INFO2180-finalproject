@@ -8,8 +8,8 @@ body
 .header_bar
 {
     background-color:#1f2937;
-    padding: 10px;
-    margin-top: 0px;
+    padding: 0.625rem;
+    margin-top: 0rem;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -18,17 +18,17 @@ body
 
 .container
 {
-    margin-top: 120px;
+    margin-top: 7.5rem;
 }
 
 .header_bar #logo
 {
-    width:20px;
+    width:1.25rem;
 }
 
 .header_bar p
 {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .container 
@@ -43,21 +43,22 @@ body
     width: 25vw;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    font-size: 15px;
-    border-radius: 9px 9px 9px 9px;
+    font-size: 0.938rem;
+    border-radius: 0.563rem 0.563rem 0.563rem 0.563rem;
     border-color: aliceblue;
     height: 5vh;
+    cursor: pointer;
 }
 
 .container form div button #lock
 {
-    width:18px;
+    width:1.125rem;
     float: left;
 }
 
 .container form div
 {
-    padding: 10px;
+    padding: 0.625rem;
 }
 
 .container form div #password
@@ -74,14 +75,14 @@ body
 
 .container form div input
 {
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    padding: 0.313rem;
+    margin: 0.313rem;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.313rem;
+    font-size: 1rem;
 }
 
 #copyright
 {
-    font-size: 10px;
+    font-size: 0.625rem;
 }
