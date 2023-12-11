@@ -11,7 +11,7 @@ if (!isset($_SESSION["user_id"]))
 $conn= require __DIR__ . "/accessDB.php";
 
 
-$sql= sprintf("SELECT * FROM contacts");
+$sql= sprintf("SELECT * FROM users");
 
 $result= $conn->query($sql);
 
