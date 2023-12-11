@@ -23,7 +23,7 @@ $result= $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <script src="js/dashboard.js"></script>
     <title>Dashboard</title>
     <header class="header_bar">
@@ -42,7 +42,7 @@ $result= $conn->query($sql);
 
     <a href="#" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
     <a href="addContact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-    <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
+    <a href="viewUser.php"><li><i class="material-icons">people_outline</i>Users</li></a>
     <br>
     <hr>
     <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
