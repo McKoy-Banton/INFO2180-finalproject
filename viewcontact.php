@@ -22,6 +22,7 @@ $contact = $result->fetch_assoc();
 
 $creator = $contact["created_by"];
 $assigned = $contact["assigned_to"];
+
 //Creator information
 $sql  = sprintf("SELECT * FROM users where id = $creator ");
 $result = $conn ->query($sql);
@@ -65,6 +66,7 @@ function convertTimeFormat(){
     <link rel="stylesheet" href="css/viewcontact.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="js/viewcontact.js"></script>
     <title>Contact View</title>
 
 </head>
@@ -79,7 +81,8 @@ function convertTimeFormat(){
 
     <a href="dashboard.php" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
     <a href="create-contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-    <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a> <br>
+    <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+    <br>
     <hr>
     <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             
@@ -92,15 +95,18 @@ function convertTimeFormat(){
                         <img src="img/profilepic.png" alt="Contact Profile Picture"> <!--filler image-->
 
                         <div class="text">
-                            <h1><?php echo $contact['title'] . " " . $contact['firstname'] . " " . $contact['lastname']?></h1> <!--filler text-->
+                            <h1><?php echo $contact['title'] . " " . $contact['firstname'] . " " . $contact['lastname']?></h1> 
                             <p>Created on <?php echo convertDateFormat(substr($contact['created_at'], 0, 10)) ?> by <?php echo $created_by['firstname'] . " " . $created_by['lastname']?></p>  <!--filler text-->
-                            <p>Updated on <?php echo convertDateFormat(substr($contact['updated_at'], 0, 10)) ?></p>  <!--filler text-->
+                            <p id="updatedInfo">Updated on <?php echo convertDateFormat(substr($contact['updated_at'], 0, 10)) ?></p>  
                         </div>
                 </div>
                 <div class="header-buttons">
-                    <button type="button" id="switch"><span class="material-symbols-outlined">switches</span>Switch to <?php if($contact['type'] == "Support"){echo "Sales Lead";} else{echo "Support";}?></button> 
                     <button type="button" id="assign"><i class="material-symbols-outlined">add_circle</i>Assign to me</button> 
-                    
+                    <button type="button"  id="switch" data-type="<?php echo $contact['type']; ?>">
+                        <span class="material-symbols-outlined">switches</span>
+                        <span id="buttonText"><?php echo $contact['type'] === 'Support' ? 'Sales Lead' : 'Support'; ?></span>
+                    </button>
+
                 </div>
 
                
@@ -146,8 +152,8 @@ function convertTimeFormat(){
                         <?php
                             foreach($notes as $note){
                                 //Getting name of person who made note
-                                
-                                $sql  = sprintf("SELECT * FROM users where id = $creator ");
+                                $noteId = $note['created_by'];
+                                $sql  = sprintf("SELECT * FROM users where id = $noteId ");
                                 $result = $conn ->query($sql);
                                 $user = $result->fetch_assoc();
                                 echo "<div class=\"written-notes\">";

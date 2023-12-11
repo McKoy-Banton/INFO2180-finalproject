@@ -1,8 +1,8 @@
 <?php
 
 $host = 'localhost';
-$username = 'mcKoy';  #change this field
-$password = '12345'; #change this field
+$username = 'kevonteh';  #change this field
+$password = 'Kim_bro123'; #change this field
 $dbname = 'dolphin_crm'; # do not change this field
 
 $conn = new mysqli($host, $username, $password, $dbname);

@@ -12,7 +12,7 @@ if (!isset($_SESSION["user_id"]))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="addUser.css">
+    <link rel="stylesheet" href="css/addUser.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Add User</title>
     
@@ -24,12 +24,13 @@ if (!isset($_SESSION["user_id"]))
    
 </head>
 <body>
-<script src="addUser.js"></script>
+<script src="js/addUser.js"></script>
 <div class="sidebar">
 
-    <a href="#" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
-    <a href="#"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-    <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
+    <a href="dashboard.php" ><li><i class="material-icons">home</i>Home</li></a>
+    <a href="addContact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+    <a href="viewUser.php" class="currentPage"><li><i class="material-icons">people_outline</i>Users</li></a>
+    <br>
     <hr>
     <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             

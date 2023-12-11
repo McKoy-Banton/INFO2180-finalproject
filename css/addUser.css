@@ -9,6 +9,7 @@
     color: white;
     border: none;
 }
+
 input
 {
 border-radius: 0.313rem;
@@ -503,4 +504,15 @@ table a{
 table a:hover{
     border-bottom: 1px solid rgb(89, 86, 255);
 }
+}
+
+#Message {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #333;
+    margin-top: 20px;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px auto;
 }
