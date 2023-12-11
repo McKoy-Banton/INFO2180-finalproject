@@ -24,7 +24,7 @@ $result= $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Contact</title>
 
-    <link rel="stylesheet" href="addContact.css">
+    <link rel="stylesheet" href="css/addContact.css">
     <script src="js/addContact.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ $result= $conn->query($sql);
             <ul>
                 <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
                 <a href="#" class="currentPage"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-                <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <a href="viewUser.php"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
                 <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
