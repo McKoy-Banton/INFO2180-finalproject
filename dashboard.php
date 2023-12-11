@@ -23,33 +23,40 @@ $result= $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="dashboard.css">
     <script src="js/dashboard.js"></script>
     <title>Dashboard</title>
     <header class="header_bar">
-        <p><img src="img/logo.png" alt="Badge Image" id="logo"> Dolphin CRM</p>
+      
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </header>
  
    
 </head>
 <body>
+        <nav>
+        <img src="img/logo.png" alt="Dolphin CRM LOGO" srcset="">
+        <p>Dolphin CRM</p>
+    </nav>
 <div class="sidebar">
 
     <a href="#" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
-    <a href="#"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+    <a href="addContact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
     <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
     <hr>
     <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             
 </div>
+
+
+
 <div class="content">
     <div class="card">
 
     <main>
             <header>
                 <h1>Dashboard</h1>
-                <a href="create-contact.php"><i class="material-icons">group_add</i>Add Contact</a>
+                <a href="addContact.php"><i class="material-icons">group_add</i>Add Contact</a>
             </header>
 
             <section>
@@ -61,6 +68,10 @@ $result= $conn->query($sql);
                     <button class="filter-support">Support</button>
                     <button class="filter-assigned">Assigned to me</button>
                 </div>
+
+                
+
+                
 
                 <table>
                     <colgroup>
