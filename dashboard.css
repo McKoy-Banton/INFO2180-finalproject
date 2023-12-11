@@ -1,68 +1,61 @@
-
-body 
-{
+*{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    background-color: rgb(233, 233, 233);
 }
 
-.header_bar
-{
-    background-color:#1f2937;
-    padding: 0.625rem;
-    margin-top: 0rem;
+
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    height: 70px;
+    background: linear-gradient(90deg, #1f2937 0%, #1f2937 100%);
+
+    font-weight: bolder;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav img{
+    margin-right: 15px;
+    width: 50px;
+}
+
+.container{
+    display: flex;
+    height: 100%;
+}
+main{
+    height: 100%;
+}
+
+.sidebar a{
     display: flex;
     align-items: center;
-}
-
-.container
-{
-    margin-top: 7.5rem;
-}
-
-.header_bar #logo
-{
-    width:1.25rem;
-}
-
-.header_bar p
-{
-    font-size: 1.125rem;
-}
-
-.sidebar {
-    height: 100vh;
-    width: 15vw;
-    position: fixed;
-    background-color: white;
-    padding-top: 1.25rem;
-}
-
-.sidebar a {
-    padding: 0.938rem 1.25rem;
+    height: 40px;
     text-decoration: none;
-    font-size: 1 rem;
-    color: #000000;
-    display: block;
-    transition: 0.3s;
+    color: black;
+
+    transition: 0.2s;
+}
+ i{
+    margin-right: 10px;
 }
 
 .sidebar a:hover {
+    margin-left: 10px;
     color: #1d95be;
-}
-
-
-.content {
-    padding: 0.313rem;
-    margin-top: 10px;
-    /*margin-left: 10px;*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*background-color: red;*/
-    
 }
 
 ul{
@@ -75,6 +68,25 @@ li{
     display: flex;
     align-items: center;
 }
+
+
+
+.currentPage li{
+    color: rgb(8, 226, 255);
+}
+.content {
+    padding: 0.513rem;
+    margin-top: 5px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: static;
+    
+
+    
+}
+
 
 main{
     padding: 3.125rem;
@@ -114,10 +126,7 @@ header button:hover{
     background-color: rgba(0,113,156,1)
 }
 
-i{
 
-    margin-right: 10px;
-}
 
 h1{
     margin: 0px;
